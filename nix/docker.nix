@@ -154,6 +154,7 @@ rec {
         "deploy"
       ];
     };
+  };
   boba-deployer =
     let
       boba-contracts = bobapkgs.boba-contracts-min;
