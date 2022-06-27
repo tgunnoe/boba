@@ -158,7 +158,7 @@ rec {
   boba-deployer =
     let
       boba-contracts = bobapkgs.boba-contracts-min;
-    in pkgs.dockerTools.steamLayeredImage {
+    in pkgs.dockerTools.streamLayeredImage {
       name = "boba_deployer";
       tag = tag;
       config = {
@@ -294,7 +294,7 @@ rec {
             --replace 'sleep' '${pkgs.coreutils}/bin/sleep'
         '';
       };
-    in buildImage {
+    in pkgs.dockerTools.streamLayeredImage {
       name = "message-relayer";
       tag = tag;
       config = {

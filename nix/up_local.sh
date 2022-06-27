@@ -11,7 +11,7 @@ nix run .#l2geth.copyToDockerDaemon
 nix run .#hardhat.copyToDockerDaemon
 nix run .#gas-price-oracle.copyToDockerDaemon
 nix build .#monitor && ./result
-nix run .#relayer.copyToDockerDaemon
+nix build .#relayer && ./result
 nix build .#integration-tests && ./result
 nix run .#fraud-detector.copyToDockerDaemon
 
