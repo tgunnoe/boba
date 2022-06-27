@@ -158,7 +158,7 @@ rec {
   boba-deployer =
     let
       boba-contracts = bobapkgs.boba-contracts-min;
-    in buildImage {
+    in pkgs.dockerTools.steamLayeredImage {
       name = "boba_deployer";
       tag = tag;
       config = {
@@ -261,7 +261,7 @@ rec {
       ];
     };
   };
-  monitor = buildImage {
+  monitor = pkgs.dockerTools.streamLayeredImage {
     name = "monitor";
     tag = tag;
     config = {
@@ -323,7 +323,7 @@ rec {
         '';
       };
 
-    in buildImage {
+    in pkgs.dockerTools.streamLayeredImage {
       name = "integration-tests";
       tag = tag;
       config = {

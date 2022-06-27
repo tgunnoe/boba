@@ -5,14 +5,14 @@ DOCKERFILE="docker-compose.yml"
 
 nix build .#dtl && ./result
 nix build .#deployer && ./result
-nix run .#boba-deployer.copyToDockerDaemon
+nix build .#boba-deployer && ./result
 nix run .#batch-submitter.copyToDockerDaemon
 nix run .#l2geth.copyToDockerDaemon
 nix run .#hardhat.copyToDockerDaemon
 nix run .#gas-price-oracle.copyToDockerDaemon
-nix run .#monitor.copyToDockerDaemon
+nix build .#monitor && ./result
 nix run .#relayer.copyToDockerDaemon
-nix run .#integration-tests.copyToDockerDaemon
+nix build .#integration-tests && ./result
 nix run .#fraud-detector.copyToDockerDaemon
 
 if [[ $DAEMON == 1 ]]; then
