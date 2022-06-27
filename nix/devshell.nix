@@ -33,7 +33,7 @@ pkgs.devshell.mkShell {
       name = "boba-buildall";
       help = "build the optimism/boba monorepo";
       category = "build";
-      command = "nix build .#";
+      command = "nix build .#monorepo";
     }
     {
       name = "hardhat-node";

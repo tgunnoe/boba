@@ -106,7 +106,11 @@
           config.projectRoot = ./. ;
           #config.packagesDir = ./nix/packages;
           config.overridesDirs = [ ./nix/overrides ];
-          source =  ./.;
+          source = builtins.path {
+            name = "boba";
+            path = ./.;
+            filter = path: _: baseNameOf path != "boba_community";
+          };
           settings = [
             {
               #subsystemInfo.noDev = true;
