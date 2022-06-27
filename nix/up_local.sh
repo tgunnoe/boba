@@ -3,8 +3,8 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
 DOCKERFILE="docker-compose.yml"
 
-nix run .#dtl.copyToDockerDaemon
-nix run .#deployer.copyToDockerDaemon
+nix build .#dtl && ./result
+nix build .#deployer && ./result
 nix run .#boba-deployer.copyToDockerDaemon
 nix run .#batch-submitter.copyToDockerDaemon
 nix run .#l2geth.copyToDockerDaemon
